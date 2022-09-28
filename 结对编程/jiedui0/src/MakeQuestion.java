@@ -93,7 +93,11 @@ public class MakeQuestion {
                         //将生成的随机数存入question中
                         question.append(num1).append('/').append(num2);
                         String tmp = evaluator.evaluate(Calculate.fractionRp(question.toString()));
-                        if (tmp != null && tmp.charAt(0) == '-') {
+                        if(tmp == null){
+                            i--;
+                            continue outer;
+                        }
+                        else if (tmp.charAt(0) == '-') {
                             i--;
                             continue outer;
                         }
